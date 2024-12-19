@@ -11,16 +11,18 @@ interface Post {
   [key: string]: any; // Allow for additional fields if necessary
 }
 
-export default async function Content() {
-  // Await the getAllPosts function because it is asynchronous
-  const posts: Post[] = await getAllPosts();
+// Define the props expected in the component
+interface ContentProps {
+  posts: Post[];
+}
 
+export default function Content({ posts }: ContentProps) {
   return (
     <div>
       <div id="blog" className="p-8 font-[family-name:var(--font-geist-sans)] mt-14 sm:mt-36 bg-white">
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-500">Available Blogs</h1>
         <div className="flex flex-col sm:flex-wrap sm:flex-row justify-center items-center gap-8">
-          {posts.map((post: Post, index:number) => (
+          {posts.map((post: Post, index: number) => (
             <div
               key={index}
               className="bg-white text-center shadow-lg rounded-lg p-6 w-full sm:w-1/3 transform transition duration-500 hover:scale-105"
@@ -42,4 +44,15 @@ export default async function Content() {
       </div>
     </div>
   );
+}
+
+// This function runs at build time and fetches the posts
+export async function getStaticProps() {
+  const posts = await getAllPosts();  // Fetch the posts asynchronously
+
+  return {
+    props: {
+      posts,  // Pass the posts to the component as props
+    },
+  };
 }
