@@ -6,7 +6,7 @@ import MarkdownIt from 'markdown-it';
 
 const md = MarkdownIt()
 
-async function fetchPosts(slug:string) {
+async function fetchPosts(slug:any) {
     const posts =  getAllPosts()
     return posts.find((post) => post.slug === slug)
     
