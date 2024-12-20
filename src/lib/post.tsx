@@ -7,7 +7,7 @@ const postDir = path.join(process.cwd(), 'src/posts');
 export type BlogPost = {
     slug: string;
     content: string;
-    [key: string]: any;
+    [key: string]: string | number;
 };
 
 export const getAllPosts = (): BlogPost[] => {
