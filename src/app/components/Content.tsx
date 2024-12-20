@@ -1,6 +1,6 @@
 import { getAllPosts } from "@/lib/post";
 import Link from "next/link";
-
+import { BlogPost } from "@/lib/post";
 
 export default function Content() {
   const posts = getAllPosts();
@@ -10,7 +10,7 @@ export default function Content() {
       <div id="blog" className="p-8 font-[family-name:var(--font-geist-sans)] mt-14 sm:mt-36 bg-white">
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-500">Available Blogs</h1>
         <div className="flex flex-col sm:flex-wrap sm:flex-row justify-center items-center gap-8">
-          {posts.map((post: any, index:number) => (
+          {posts.map((post: BlogPost, index:number) => (
             <div
               key={index}
               className="bg-white text-center shadow-lg rounded-lg p-6 w-full sm:w-1/3 transform transition duration-500 hover:scale-105"
