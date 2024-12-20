@@ -2,30 +2,41 @@ import { getAllPosts } from "@/lib/post"
 import { notFound } from "next/navigation";
 import MarkdownIt from 'markdown-it';
 
-
-
 const md = MarkdownIt()
 
-async function fetchPosts(slug:any) {
-    const posts =  getAllPosts()
-    return posts.find((post) => post.slug === slug)
-    
+async function fetchPosts(slug: string): Promise<PostData | undefined> {
+    const posts = getAllPosts()
+    return posts.find((post) => post.slug === slug) as PostData | undefined
 }
 
-export default async function Post({params}:any) {
+interface PostParams {
+    params: {
+        slug: string;
+    };
+}
 
-    const post:any = await fetchPosts(params.slug)
+interface PostData {
+    title: string;
+    content: string;
+    date: string;
+    slug: string; // Ensure slug is part of the PostData if needed
+}
 
+export default async function Post({ params }: PostParams) {
 
-    if(!post) notFound()
+    const post: PostData | undefined = await fetchPosts(params.slug)
+
+    if (!post) notFound()
 
     const htmlConverter = md.render(post.content)
 
-    return(
+    return (
         <article className="sm:max-w-4xl mx-auto sm:px-16 px-4">
-            <div className="prose font-[family-name:var(--font-geist-sans)] text-gray-800" dangerouslySetInnerHTML={{__html: htmlConverter}} />
+            <h1 className="font-bold text-3xl text-center font-serif py-5">{post.title}</h1>
+            <div className="prose font-[family-name:var(--font-geist-sans)] text-gray-900 text-base" dangerouslySetInnerHTML={{ __html: htmlConverter }} />
             <h1>{post.title}</h1>
             <p>{post.date}</p>
         </article>
     )
 }
+
