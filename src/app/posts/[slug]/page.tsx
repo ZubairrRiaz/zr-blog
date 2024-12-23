@@ -1,6 +1,8 @@
 import { getAllPosts } from "@/lib/post"
 import { notFound } from "next/navigation";
 import MarkdownIt from 'markdown-it';
+import Image from "next/image";
+
 
 const md = MarkdownIt()
 
@@ -32,8 +34,9 @@ export default async function Post({ params }: PostParams) {
 
     return (
         <article className="sm:max-w-4xl mx-auto sm:px-16 px-4">
-            <h1 className="font-bold text-3xl text-center font-serif py-5">{post.title}</h1>
-            <div className="prose font-[family-name:var(--font-geist-sans)] text-gray-900 text-base" dangerouslySetInnerHTML={{ __html: htmlConverter }} />
+            <div className="flex justify-center"><Image src={'/sample-04.png'} alt="pic" height={100} width={300}/></div>
+            <h1 className="font-bold text-3xl text-center font-serif py-5 bg-black text-white rounded-lg m-6">{post.title}</h1>
+            <div className="prose font-[family-name:var(--font-geist-sans)] text-gray-900 text-lg text-" dangerouslySetInnerHTML={{ __html: htmlConverter }} />
             <h1>{post.title}</h1>
             <p>{post.date}</p>
         </article>
