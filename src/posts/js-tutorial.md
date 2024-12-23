@@ -7,15 +7,14 @@ description: This is a JavaScript tutorial for beginners
 
 ---
 
-[JS pic](/public/js.png)
 
 
-# Javascript Tutorial
 
 #### JavaScript is a versatile and powerful programming language that is essential for creating dynamic and interactive web applications. Whether you're a complete beginner or looking to enhance your skills, this tutorial will guide you through the basics and help you build a strong foundation in JavaScript.
 
 
-## Introduction to JavaScript
+## Introduction to JS
+(Javascript)
 
 
 * **Variables and Data Types**
@@ -31,14 +30,14 @@ description: This is a JavaScript tutorial for beginners
 * **JavaScript Frameworks**
 * **JavaScript Testing**
 * **Conclusion**
-## Introduction to JavaScript
+
 
 JavaScript is a versatile and powerful programming language used primarily for building dynamic and interactive web applications. It is a client-side scripting language, but with the advent of Node.js, JavaScript can also run on the server.
 
 ---
 
 
-## Why Learn JavaScript?
+## Why Learn JS?
 It powers most of the web, making it essential for modern web development.
 It is used both for front-end (React, Angular, Vue) and back-end (Node.js) development.
 It has a vast ecosystem and a large community of developers.

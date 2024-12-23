@@ -7,9 +7,7 @@ description: This is a HTML Guide for beginners
 
 ---
 
-[Html pic](/public/html.png)
 
-# HTML Guide
 
 #### This guide will help you understand how to create a simple HTML blog and explain the essential HTML tags you will use. You'll also find code examples that demonstrate their usage.
 
